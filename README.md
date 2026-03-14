@@ -1,4 +1,3 @@
-# Boundary-Divergence
 # Boundary Divergence: A Geometric Diagnostic of Cross-Model Disagreement
 
 This repository contains the code and notebooks for the paper:
@@ -77,6 +76,18 @@ where $m(x) = f_{\text{pos}}(x) - f_{\text{neg}}(x)$ is the classification margi
 **Boundary divergence** between models $A$ and $B$:
 
 $$D(x) = |S_A(x) - S_B(x)|$$
+
+## Reproducibility Note
+
+All experiments were verified to run end-to-end and reproduce the core findings. However, exact numerical results may differ slightly from those reported in the paper due to non-deterministic elements in model training (random weight initialization, GPU parallelism). The qualitative findings are stable across runs:
+
+- Boundary divergence predicts cross-model disagreement significantly above chance
+- The asymmetry effect is consistent in direction across all dataset-pair combinations
+- The monotonic relationship between divergence and disagreement holds across runs
+
+For Experiment 4 (NLI task), one verification run produced Spearman r=0.118 (p=0.008) and asymmetry ratio 1.43x, compared to r=0.182 (p<0.001) and 1.89x reported in the paper. Both runs are statistically significant and support the same conclusion.
+
+To reduce variance, set explicit seeds in `TrainingArguments` and use `CUBLAS_WORKSPACE_CONFIG=:4096:8` before running on GPU.
 
 ## Citation
 
