@@ -89,18 +89,6 @@ For Experiment 4 (NLI task), one verification run produced Spearman r=0.118 (p=0
 
 To reduce variance, set explicit seeds in `TrainingArguments` and use `CUBLAS_WORKSPACE_CONFIG=:4096:8` before running on GPU.
 
-## Citation
-
-If you use this code or build on this work, please cite:
-
-```bibtex
-@article{taylor2026boundary,
-  author  = {Taylor, Elizabeth J.},
-  title   = {Boundary Divergence: A Geometric Diagnostic of Cross-Model Disagreement},
-  year    = {2026}
-}
-```
-
 ## License
 
 MIT License
